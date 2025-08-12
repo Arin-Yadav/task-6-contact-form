@@ -33,7 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (!nameRegex.test(name)) {
       nameError.textContent = "Name must contain only letters and spaces.";
       isValid = false;
+    } else if (name.length > 15) {
+      nameError.textContent = "Name must be 15 characters or less.";
+      isValid = false;
     }
+
 
     // Validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -42,6 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
     } else if (!emailRegex.test(email)) {
       emailError.textContent = "Invalid email format.";
+      isValid = false;
+    } else if (email.length > 25) {
+      emailError.textContent = "Email must be 25 characters or less.";
       isValid = false;
     }
 
